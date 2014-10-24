@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordCountApp", "WordCountApp\WordCountApp.csproj", "{AC058D8E-4A59-46FF-AB13-C434303887FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordCountApp.Tests", "WordCountApp.Tests\WordCountApp.Tests.csproj", "{619329D4-B483-4396-B90F-4FB68E28A77E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{49EF5F79-0885-43D6-B963-777A32B52773}"
+	ProjectSection(SolutionItems) = preProject
+		README.TXT = README.TXT
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC058D8E-4A59-46FF-AB13-C434303887FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC058D8E-4A59-46FF-AB13-C434303887FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC058D8E-4A59-46FF-AB13-C434303887FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC058D8E-4A59-46FF-AB13-C434303887FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{619329D4-B483-4396-B90F-4FB68E28A77E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{619329D4-B483-4396-B90F-4FB68E28A77E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{619329D4-B483-4396-B90F-4FB68E28A77E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{619329D4-B483-4396-B90F-4FB68E28A77E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
