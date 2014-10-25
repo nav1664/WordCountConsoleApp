@@ -26,8 +26,8 @@ namespace WordCountApp
             }
 
             var results = sentence.ToLower()
-                .Split(Separators, StringSplitOptions.RemoveEmptyEntries)
-                  .GroupBy(s => s).ToDictionary(g => g.Key, g => g.Count());
+                                     .Split(Separators, StringSplitOptions.RemoveEmptyEntries)
+                                        .GroupBy(s => s).ToDictionary(g => g.Key, g => g.Count());
         
             return results;
         }
