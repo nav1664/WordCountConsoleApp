@@ -8,6 +8,7 @@ Thoughts
    * http://en.wikipedia.org/wiki/Sentence_(linguistics)
    * http://courses.csail.mit.edu/6.006/spring11/lectures/lec01.pdf
    * http://stackoverflow.com/questions/7285714/linq-with-groupby-and-count
+   * http://www.dotnetperls.com/word-count
 
 
 Issues and outstanding
@@ -17,3 +18,4 @@ Issues and outstanding
 * Performance not tested/measured
 * Move WordUtils into separate assembly
 * More usability add loop to main() or allow commmand line args or add UI
+* Look at using RegEx
