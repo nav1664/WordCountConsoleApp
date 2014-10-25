@@ -12,14 +12,14 @@ namespace WordCountApp.Tests
         [ExpectedException(typeof(ArgumentNullException))]
         public void WordCountTestNull()
         {
-            var results = WordUtils.WordCount(null);
+            var results = WordUtils.WordCountUsingLinq(null);
         }
 
         [TestMethod]
         public void WordCountTestEmptyString()
         {
             var s = "";
-            var results = WordUtils.WordCount(s);
+            var results = WordUtils.WordCountUsingLinq(s);
 
             Assert.AreEqual(0, results.Count());
         }
@@ -28,7 +28,7 @@ namespace WordCountApp.Tests
         public void WordCountTestSpaces()
         {
             var s = "     ";
-            var results = WordUtils.WordCount(s);
+            var results = WordUtils.WordCountUsingLinq(s);
 
             Assert.AreEqual(0, results.Count());
         }
@@ -37,7 +37,7 @@ namespace WordCountApp.Tests
         public void WordCountTestSymbols()
         {
             var s = ",;:.!?";
-            var results = WordUtils.WordCount(s);
+            var results = WordUtils.WordCountUsingLinq(s);
 
             Assert.AreEqual(0, results.Count());
         }
@@ -46,38 +46,38 @@ namespace WordCountApp.Tests
         public void WordCountBaseTest()
         {
             var s = "One.";
-            var results = WordUtils.WordCount(s).ToList();
+            var results = WordUtils.WordCountUsingLinq(s);
 
             Assert.AreEqual(1, results.Count);
 
-            Assert.AreEqual(1, results.GetCount("one"));
+            Assert.AreEqual(1, results["one"]);
 
             //no rogue full stop
-            Assert.AreEqual(0, results.GetCount("."));
+            Assert.IsFalse(results.ContainsKey("."));
         }
 
         [TestMethod]
         public void WordCountNTest()
         {
             var s = "Two two.";
-            var results = WordUtils.WordCount(s).ToList();
+            var results = WordUtils.WordCountUsingLinq(s);
 
             Assert.AreEqual(1, results.Count);
 
-            Assert.AreEqual(2, results.GetCount("two"));
+            Assert.AreEqual(2, results["two"]);
         }
 
         [TestMethod]
         public void WordCountMultipleTest()
         {
             var s = "one two two three three three.";
-            var results = WordUtils.WordCount(s).ToList();
+            var results = WordUtils.WordCountUsingLinq(s);
 
             Assert.AreEqual(3, results.Count);
 
-            Assert.AreEqual(1, results.GetCount("one"));
-            Assert.AreEqual(2, results.GetCount("two"));
-            Assert.AreEqual(3, results.GetCount("three"));
+            Assert.AreEqual(1, results["one"]);
+            Assert.AreEqual(2, results["two"]);
+            Assert.AreEqual(3, results["three"]);
         }
 
         
@@ -85,36 +85,32 @@ namespace WordCountApp.Tests
         public void WordCountTestSpec()
         {
             var s = "This is a statement, and so is this.";
-            var results = WordUtils.WordCount(s).ToList();
+            var results = WordUtils.WordCountUsingLinq(s);
 
             Assert.AreEqual(6, results.Count);
 
-            Assert.AreEqual(2, results.GetCount("this"));
-            Assert.AreEqual(2, results.GetCount("is"));
-            Assert.AreEqual(1, results.GetCount("a"));
-            Assert.AreEqual(1, results.GetCount("and"));
-            Assert.AreEqual(1, results.GetCount("statement"));
-            Assert.AreEqual(1, results.GetCount("so"));
+            Assert.AreEqual(2, results["this"]);
+            Assert.AreEqual(2, results["is"]);
+            Assert.AreEqual(1, results["a"]);
+            Assert.AreEqual(1, results["and"]);
+            Assert.AreEqual(1, results["statement"]);
+            Assert.AreEqual(1, results["so"]);
         }
-    }
 
-    //todo - this probably needs testing
-    public static class WordUtilsTestHelper
-    {
-        public static int GetCount(this List<Tuple<string, int>> words, string word)
+        [TestMethod]
+        public void WordCountTestSpecUsingIteration()
         {
-            var w = words.Where(t => t.Item1 == word);
+            var s = "This is a statement, and so is this.";
+            var results = WordUtils.WordCountUsingIteration(s);
 
-            if (w.Count() == 0)
-            {
-                return 0;
-            }
-            if (w.Count() > 1)
-            {
-                throw new ApplicationException("More than one item for same word in list.");
-            }
+            Assert.AreEqual(6, results.Count);
 
-            return w.ElementAt(0).Item2;
+            Assert.AreEqual(2, results["this"]);
+            Assert.AreEqual(2, results["is"]);
+            Assert.AreEqual(1, results["a"]);
+            Assert.AreEqual(1, results["and"]);
+            Assert.AreEqual(1, results["statement"]);
+            Assert.AreEqual(1, results["so"]);
         }
     }
 }

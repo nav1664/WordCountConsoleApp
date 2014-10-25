@@ -13,7 +13,7 @@ namespace WordCountApp
             Console.WriteLine("Please enter a sentence then press return.");
             string sentence = Console.ReadLine();
 
-            var results = WordUtils.WordCount(sentence);
+            var results = WordUtils.WordCountUsingLinq(sentence);
 
             Print(results);
 
@@ -21,11 +21,10 @@ namespace WordCountApp
             Console.ReadKey();
         }
 
-        private static void Print(IEnumerable<Tuple<string, int>> results)
+        private static void Print(Dictionary<string, int> results)
         {
             Console.WriteLine("OUTPUT");
-            var list = results.ToList();
-            if (list.Count == 0)
+            if (results.Count == 0)
             {
                 Console.WriteLine("No words found.");
                 return;
@@ -33,7 +32,7 @@ namespace WordCountApp
 
             foreach (var result in results)
             {
-                Console.WriteLine("{0} - {1}", result.Item1, result.Item2);
+                Console.WriteLine("{0} - {1}", result.Key, result.Value);
             }
         }
     }
