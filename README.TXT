@@ -19,3 +19,4 @@ Issues and outstanding
 * Move WordUtils into separate assembly
 * More usability add loop to main() or allow commmand line args or add UI
 * Started looking at iteration solution, the code wasn't tidy as the link code.
+* Could added Interface & new classes, so we have providers with different implementations (eg Linq vs char iterator).
