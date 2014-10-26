@@ -21,7 +21,7 @@ namespace WordCountApp.Tests
             var s = "";
             var results = WordUtils.WordCountUsingLinq(s);
 
-            Assert.AreEqual(0, results.Count());
+            Assert.AreEqual(0, results.Count);
         }
 
         [TestMethod]
@@ -30,7 +30,7 @@ namespace WordCountApp.Tests
             var s = "     ";
             var results = WordUtils.WordCountUsingLinq(s);
 
-            Assert.AreEqual(0, results.Count());
+            Assert.AreEqual(0, results.Count);
         }
 
         [TestMethod]
@@ -39,7 +39,7 @@ namespace WordCountApp.Tests
             var s = ",;:.!?";
             var results = WordUtils.WordCountUsingLinq(s);
 
-            Assert.AreEqual(0, results.Count());
+            Assert.AreEqual(0, results.Count);
         }
 
         [TestMethod]
@@ -111,6 +111,15 @@ namespace WordCountApp.Tests
             Assert.AreEqual(1, results["and"]);
             Assert.AreEqual(1, results["statement"]);
             Assert.AreEqual(1, results["so"]);
+        }
+
+        [TestMethod]
+        public void WordCountTestSpacesUsingInteration()
+        {
+            var s = "     ";
+            var results = WordUtils.WordCountUsingIteration(s);
+
+            Assert.AreEqual(0, results.Count);
         }
     }
 }
